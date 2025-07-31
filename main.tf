@@ -14,6 +14,7 @@ module "avm-res-network-virtualnetwork" {
   location = var.location
   name = local.vnet_name
   resource_group_name = module.resource_group.name
+  address_space = [ var.vnet_address_space ]
 }
 
 # # In this lab, assume two different roles:

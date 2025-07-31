@@ -20,6 +20,18 @@ variable "storage_account_name_prefix" {
   description = "The name of the storage account to use for the backend"
 }
 
+variable "vnet_address_space" {
+  type        = string
+  default     = "10.0.0.0/16"
+  description = "The address range allowed for the entire vnet"
+}
+
+variable "subnet_address_space" {
+  type        = string
+  default     = "10.0.0.0/24"
+  description = "The address range for the subnet"
+}
+
 variable "tags" {
   type = map(string)
   default = {
