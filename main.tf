@@ -59,7 +59,7 @@ module "private_dns_zone" {
   virtual_network_links = {
     vnetlink1 = {
       name   = "storage-account"
-      vnetid = module.virtual_network.resource_id
+      vnetid = module.avm-res-network-virtualnetwork.resource_id
     }
   }
 }
