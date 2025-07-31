@@ -35,7 +35,33 @@ module "avm-res-storage-storageaccount" {
   name                          = local.storage_account_name
   resource_group_name           = module.resource_group.name
   tags = var.tags
-  
+    containers = {
+    demo = {
+      name = "demo"
+    }
+  }
+  private_endpoints = {
+    primary = {
+      private_dns_zone_resource_ids = [module.private_dns_zone.resource_id]
+      subnet_resource_id            = module.avm-res-network-virtualnetwork_subnet.resource_id
+      subresource_name              = "blob"
+    }
+  }
+
+}
+
+module "private_dns_zone" {
+  source  = "Azure/avm-res-network-privatednszone/azurerm"
+  version = "0.4.0"
+
+  domain_name = "privatelink.blob.core.windows.net"
+  parent_id   = module.resource_group.resource_id
+  virtual_network_links = {
+    vnetlink1 = {
+      name   = "storage-account"
+      vnetid = module.virtual_network.resource_id
+    }
+  }
 }
 
 
