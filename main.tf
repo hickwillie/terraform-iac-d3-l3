@@ -17,6 +17,16 @@ module "avm-res-network-virtualnetwork" {
   address_space = [ var.vnet_address_space ]
 }
 
+
+module "avm-res-network-virtualnetwork_subnet" {
+  source  = "Azure/avm-res-network-virtualnetwork/azurerm//modules/subnet"
+  version = "0.9.3"
+  # insert the 2 required variables here
+  name = local.subnet_name
+  virtual_network = module.avm-res-network-virtualnetwork.resource.output
+  address_prefixes = [ var.subnet_address_space ]
+}
+
 # # In this lab, assume two different roles:
 # #   Network Engineer: Provisions Azure network-related resources and saves the remote state into the Azure Storage Account container called network.
 # #   SRE Team Engineer: Provisions Azure Kubernetes-related resources and saves the remote state into the Azure Storage Account container called application.
