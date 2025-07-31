@@ -2,11 +2,15 @@ variable "location" {
   type        = string
   default     = "swedencentral"
   description = "The region to deploy the resources to"
+  validation {
+    condition = var.location == "swedencentral"
+    error_message = "We is cheap.  Don't put anywhere but swedencentral"
+  }
 }
 
 variable "resource_group_name" {
   type        = string
-  default     = "rg-demo-dev-swedencentral-001"
+  default     = "rg-demo-dev-swedencentral-003"
   description = "The name of the resource group for the Storage Account and App Configuration which will contain the terraform backend and exported values"
 }
 
@@ -19,7 +23,7 @@ variable "storage_account_name_prefix" {
 variable "tags" {
   type = map(string)
   default = {
-    env  = "AVM Lab"
+    env  = "AVM Lab 3"
     dept = "Skillable"
   }
   description = "Tags to apply to the resources"
