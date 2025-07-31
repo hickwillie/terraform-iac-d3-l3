@@ -1,11 +1,20 @@
 module "resource_group" {
   source   = "Azure/avm-res-resources-resourcegroup/azurerm"
   version  = "0.2.1"
-  name     = var.resource_group_name
+  name     = local.rg_name
   location = var.location
   tags     = var.tags
 }
 
+module "avm-res-network-virtualnetwork" {
+  source  = "Azure/avm-res-network-virtualnetwork/azurerm"
+  version = "0.9.3"
+  # insert the 3 required variables here
+  tags = var.tags
+  location = var.location
+  name = local.vnet_name
+  resource_group_name = module.resource_group.name
+}
 
 # # In this lab, assume two different roles:
 # #   Network Engineer: Provisions Azure network-related resources and saves the remote state into the Azure Storage Account container called network.

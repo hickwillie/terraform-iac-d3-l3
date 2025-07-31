@@ -8,9 +8,9 @@ variable "location" {
   }
 }
 
-variable "resource_group_name" {
+variable "application_name" {
   type        = string
-  default     = "rg-demo-lab3-3-swedencentral"
+  default     = "demo-lab3-3"
   description = "The name of the resource group for the Storage Account and App Configuration which will contain the terraform backend and exported values"
 }
 
