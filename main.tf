@@ -27,6 +27,18 @@ module "avm-res-network-virtualnetwork_subnet" {
   address_prefixes = [ var.subnet_address_space ]
 }
 
+
+module "avm-res-storage-storageaccount" {
+  source  = "Azure/avm-res-storage-storageaccount/azurerm"
+  version = "0.6.4"
+  location                      = var.location
+  name                          = local.storage_account_name
+  resource_group_name           = module.resource_group.name
+  tags = var.tags
+  
+}
+
+
 # # In this lab, assume two different roles:
 # #   Network Engineer: Provisions Azure network-related resources and saves the remote state into the Azure Storage Account container called network.
 # #   SRE Team Engineer: Provisions Azure Kubernetes-related resources and saves the remote state into the Azure Storage Account container called application.
@@ -40,10 +52,6 @@ module "avm-res-network-virtualnetwork_subnet" {
 #   upper   = false
 #   lower   = true
 #   numeric = false
-# }
-
-# locals {
-#   storage_account_name = "${var.storage_account_name_prefix}${random_string.unique_name.result}"
 # }
 
 # module "storage_account" {

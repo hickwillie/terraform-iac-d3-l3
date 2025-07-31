@@ -16,7 +16,7 @@ variable "application_name" {
 
 variable "storage_account_name_prefix" {
   type        = string
-  default     = "stdemodevswe001"
+  default     = "stdemodevslab3_3"
   description = "The name of the storage account to use for the backend"
 }
 
