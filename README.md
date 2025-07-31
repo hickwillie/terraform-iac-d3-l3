@@ -30,3 +30,11 @@ The resources can follow any naming convention, but it should be consistent acro
 
 architecture
 https://labondemand.blob.core.windows.net/content/lab183622/media/exercise3-architecture.png
+
+
+
+# MISSING
+- NSG
+- App subnets
+- Better DNS setup
+- Log analytics
