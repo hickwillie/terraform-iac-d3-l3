@@ -1,3 +1,5 @@
+2025 MS AZure IaC Training - Day 3 Lab 3-ish
+
 Lab 02 - Terraform Azure Verified Modules
 43 Hr 43 Min Remaining
 Exercise 3: Azure Verified Modules from scratch
